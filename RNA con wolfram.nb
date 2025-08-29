@@ -1,0 +1,77 @@
+Notebook[{Cell[
+CellGroupData[{Cell[
+BoxData[{RowBox[{RowBox[{"inputs"," ","="," ",RowBox[
+{"{",RowBox[{RowBox[{"{",RowBox[{"0.",",","0."}],"}"}],",",RowBox[{"{",RowBox[{"0.",",","1."}],"}"}],",",RowBox[
+{"{",RowBox[{"1.",",","0."}],"}"}],",",RowBox[{"{",RowBox[{"1.",",","1."}],"}"}]}],"}"}]}],";"}],"\n",RowBox[
+{RowBox[{"salidaAND"," ","="," ",RowBox[{"{",RowBox[{"0.",",","0.",",","0.",",","1."}],"}"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"redAND"," ","="," ",RowBox[{"NetTrain","[","\n","  ",RowBox[
+{RowBox[{"NetChain","[",RowBox[{"{",RowBox[{RowBox[{"LinearLayer","[","1","]"}],","," ","LogisticSigmoid"}],"}"}],"]"}],",","\n","  ",RowBox[
+{"Thread","[",RowBox[{"inputs"," ","\[Rule]"," ","salidaAND"}],"]"}]}],"\n","]"}]}],";"}],RowBox[
+{"\n","\n"}],RowBox[{RowBox[{"TableForm","[","\n","  ",RowBox[{RowBox[{"Table","[","\n","    ",RowBox[
+{RowBox[{"{",RowBox[{RowBox[{"inputs","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[
+{"salidaAND","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[{"Round","[",RowBox[{"redAND","[",RowBox[
+{"inputs","[",RowBox[{"[","i","]"}],"]"}],"]"}],"]"}]}],"}"}],",","\n","    ",RowBox[
+{"{",RowBox[{"i",","," ",RowBox[{"Length","[","inputs","]"}]}],"}"}]}],"\n","  ","]"}],",","\n","  ",RowBox[
+{"TableHeadings"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"None",","," ",RowBox[{"{",RowBox[
+{"\"x1,x2\"",","," ","\"AND Real\"",","," ","\"AND Pred\""}],"}"}]}],"}"}]}]}],"\n","]"}],"\n"}]}],
+"Input",CellLabel -> "In[1]:= ",ExpressionUUID -> "2d4269e5-8edd-4f11-9d70-554fbcf4af9a"],Cell[
+BoxData[
+InterpretationBox[GridBox[{{"\"x1,x2\"","\"AND Real\"","\"AND Pred\""},{GridBox[{{"0.`"},{"0.`"}},
+RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"0.`","0"},{GridBox[
+{{"0.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"0.`","0"},{GridBox[{{"1.`"},{"0.`"}},RowAlignments -> Baseline,
+ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"0.`","0"},{GridBox[
+{{"1.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"1.`","1"}},RowAlignments -> Baseline,ColumnAlignments -> Center,
+RowSpacings -> 1,ColumnSpacings -> 3],TableForm[{{{0.`,0.`},0.`,0},{{0.`,1.`},0.`,0},{{1.`,0.`},0.`,0},{{1.`,1.`},1.`,1}},
+TableHeadings -> {None,{"x1,x2","AND Real","AND Pred"}}]],StandardForm],"Output",
+CellLabel -> "Out[4]//TableForm= ",ExpressionUUID -> "7689b08a-07a1-474c-840e-a8e098909700"]},
+Open],ExpressionUUID -> "b41647c2-33b8-4ec8-b659-eae131159923"],Cell[
+BoxData[""],
+"Input",ExpressionUUID -> "e340a7d2-696e-403f-9fa9-9f47eda95eba"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{"salidaOR = {0.,1.,1.,1.};"}],"\n\n",RowBox[{"redOR = NetTrain[\n  NetChain[{LinearLayer[1], LogisticSigmoid}],\n  Thread[inputs \[Rule] salidaOR]\n];"}],"\n\n",RowBox[
+{"TableForm[\n  Table[\n    {inputs[[i]], salidaOR[[i]], Round[redOR[inputs[[i]]]]},\n    {i, Length[inputs]}\n  ],\n  TableHeadings \[Rule] {None, {\"x1,x2\", \"OR Real\", \"OR Pred\"}}\n]\n"}]}],
+"Input",CellLabel -> "In[5]:= ",ExpressionUUID -> "0d7896c0-1e45-4180-8a12-931ea27238a7"],Cell[
+BoxData[
+InterpretationBox[GridBox[{{"\"x1,x2\"","\"OR Real\"","\"OR Pred\""},{GridBox[{{"0.`"},{"0.`"}},
+RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"0.`","0"},{GridBox[
+{{"0.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"1.`","1"},{GridBox[{{"1.`"},{"0.`"}},RowAlignments -> Baseline,
+ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"1.`","1"},{GridBox[
+{{"1.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"1.`","1"}},RowAlignments -> Baseline,ColumnAlignments -> Center,
+RowSpacings -> 1,ColumnSpacings -> 3],TableForm[{{{0.`,0.`},0.`,0},{{0.`,1.`},1.`,1},{{1.`,0.`},1.`,1},{{1.`,1.`},1.`,1}},
+TableHeadings -> {None,{"x1,x2","OR Real","OR Pred"}}]],StandardForm],"Output",CellLabel -> "Out[7]//TableForm= ",
+ExpressionUUID -> "aab87c26-d980-4913-ac36-4dcc3e6a1d2d"]},Open],ExpressionUUID -> "7293b46b-e9cc-4a45-b866-195450ef1661"],Cell[
+CellGroupData[
+{Cell[
+BoxData[{RowBox[{"\n","\n",RowBox[{RowBox[{"salidaXOR"," ","="," ",RowBox[
+{"{",RowBox[{"0.",",","1.",",","1.",",","0."}],"}"}]}],";"}]}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{"redXOR"," ","="," ",RowBox[{"NetTrain","[","\n","  ",RowBox[{RowBox[{"NetChain","[",RowBox[
+{"{","\n","    ",RowBox[{RowBox[{"LinearLayer","[","4","]"}],","," ","Tanh",",","\n","    ",RowBox[
+{"LinearLayer","[","1","]"}],","," ","LogisticSigmoid"}],"\n","  ","}"}],"]"}],",","\n","  ",RowBox[
+{"Thread","[",RowBox[{"inputs"," ","\[Rule]"," ","salidaXOR"}],"]"}],",","\n","  ",RowBox[
+{"MaxTrainingRounds"," ","\[Rule]"," ","1500"}]}],"\n","]"}]}],";"}],RowBox[{"\n","\n"}],RowBox[
+{RowBox[{"TableForm","[","\n","  ",RowBox[{RowBox[{"Table","[","\n","    ",RowBox[
+{RowBox[{"{",RowBox[{RowBox[{"inputs","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[
+{"salidaXOR","[",RowBox[{"[","i","]"}],"]"}],","," ",RowBox[{"Round","[",RowBox[{"redXOR","[",RowBox[
+{"inputs","[",RowBox[{"[","i","]"}],"]"}],"]"}],"]"}]}],"}"}],",","\n","    ",RowBox[
+{"{",RowBox[{"i",","," ",RowBox[{"Length","[","inputs","]"}]}],"}"}]}],"\n","  ","]"}],",","\n","  ",RowBox[
+{"TableHeadings"," ","\[Rule]"," ",RowBox[{"{",RowBox[{"None",","," ",RowBox[{"{",RowBox[
+{"\"x1,x2\"",","," ","\"XOR Real\"",","," ","\"XOR Pred\""}],"}"}]}],"}"}]}]}],"\n","]"}],"\n","\n"}]}],
+"Input",CellLabel -> "In[8]:= ",ExpressionUUID -> "9426f24a-f39b-40f8-9733-cb599fcfc03a"],Cell[
+BoxData[
+InterpretationBox[GridBox[{{"\"x1,x2\"","\"XOR Real\"","\"XOR Pred\""},{GridBox[{{"0.`"},{"0.`"}},
+RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"0.`","0"},{GridBox[
+{{"0.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"1.`","1"},{GridBox[{{"1.`"},{"0.`"}},RowAlignments -> Baseline,
+ColumnAlignments -> Left,RowSpacings -> 0.25`,ColumnSpacings -> 1],"1.`","1"},{GridBox[
+{{"1.`"},{"1.`"}},RowAlignments -> Baseline,ColumnAlignments -> Left,RowSpacings -> 0.25`,
+ColumnSpacings -> 1],"0.`","0"}},RowAlignments -> Baseline,ColumnAlignments -> Center,
+RowSpacings -> 1,ColumnSpacings -> 3],TableForm[{{{0.`,0.`},0.`,0},{{0.`,1.`},1.`,1},{{1.`,0.`},1.`,1},{{1.`,1.`},0.`,0}},
+TableHeadings -> {None,{"x1,x2","XOR Real","XOR Pred"}}]],StandardForm],"Output",
+CellLabel -> "Out[10]//TableForm= ",ExpressionUUID -> "e8472b75-e654-493c-bbf7-6692e6084e8b"]},
+Open],ExpressionUUID -> "088e63ed-3320-44a4-bd3c-1394d5660bfa"]},StyleDefinitions -> "Default.nb",
+FrontEndVersion -> "14.3 for Wolfram Cloud 1.73 (July 23, 2025)"]
