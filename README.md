@@ -8,7 +8,7 @@ Este proyecto muestra cómo implementar las compuertas lógicas AND, OR y XOR me
 ## Conceptos básicos
 
 Red neuronal artificial (RNA): modelo inspirado en el cerebro que recibe entradas, aplica pesos y genera una salida.
-Linealmente separable:** problemas como AND y OR se pueden resolver con una sola neurona.
+Linealmente separable: problemas como AND y OR se pueden resolver con una sola neurona.
 No linealmente separable:** problemas como XOR requieren una capa oculta para ser resueltos.
 
 
